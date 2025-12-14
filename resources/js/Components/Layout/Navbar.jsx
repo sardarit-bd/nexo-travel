@@ -13,8 +13,8 @@ export default function Navbar({ auth, siteSettings }) {
     const navigation = [
         { name: 'Home', href: route('home') },
         { name: 'Packages', href: route('packages.index') },
-        { name: 'About', href: '#' },
-        { name: 'Contact', href: '#' },
+        { name: 'About', href: route('about') },  
+        { name: 'Contact Us', href: route('contact') }, 
     ];
 
     return (

@@ -12,6 +12,7 @@ import {
     UserGroupIcon,
     ChevronDownIcon,
     UserIcon,
+    ChatBubbleLeftEllipsisIcon,
     ArrowRightOnRectangleIcon,
 } from '@heroicons/react/24/outline';
 import { Menu, Transition } from '@headlessui/react';
@@ -28,6 +29,7 @@ export default function AdminLayout({ title, children }) {
         { name: 'Destinations', href: route('admin.destinations.index'), icon: GlobeAltIcon, routeName: 'admin.destinations.*' },
         { name: 'Bookings', href: route('admin.bookings.index'), icon: UserGroupIcon, routeName: 'admin.bookings.*' },
         { name: 'Reports', href: route('admin.reports.index'), icon: ChartBarIcon, routeName: 'admin.reports' },
+        { name: 'Messages', href: route('admin.contact-messages.index'), icon: ChatBubbleLeftEllipsisIcon, routeName: 'admin.contact-messages.*' },
         { name: 'Settings', href: route('admin.settings'), icon: Cog6ToothIcon, routeName: 'admin.settings' },
     ];
 

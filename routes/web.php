@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\PageController; 
+use App\Http\Controllers\Admin\ContactMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,11 @@ use App\Http\Controllers\InvoiceController;
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// About & Contact Routes
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::post('/contact', [PageController::class, 'contactSubmit'])->name('contact.submit');
 
 // Package Routes
 Route::get('/packages', [PackageController::class, 'index'])->name('packages.index');
@@ -120,6 +127,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::post('/settings/backup', [SettingsController::class, 'backup'])->name('settings.backup');
     Route::post('/settings/restore', [SettingsController::class, 'restore'])->name('settings.restore');
     Route::post('/settings/reset', [SettingsController::class, 'reset'])->name('settings.reset');
+
+    // Contact Messages Management
+    Route::get('/contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages.index');
+    Route::get('/contact-messages/{contactMessage}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
 });
 
 // Import Laravel Breeze authentication routes (password reset, email verification, etc.)

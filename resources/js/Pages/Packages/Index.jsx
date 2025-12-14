@@ -185,7 +185,8 @@ export default function PackagesIndex({ packages, filters = {}, search: initialS
                             href={route('packages.show', pkg.id)}
                             className="block w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-3 rounded-md hover:from-indigo-700 hover:to-purple-700 text-center font-medium transition-all duration-200 shadow-md hover:shadow-lg"
                         >
-                            {hasOffer ? 'Book Now & Save' : 'View Details'}
+                            View Details
+                            {/* {hasOffer ? 'Book Now' : 'View Details'} */}
                         </Link>
                     </div>
                 </div>

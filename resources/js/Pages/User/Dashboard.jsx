@@ -105,7 +105,14 @@ export default function UserDashboard({ user, recentBookings, stats }) {
                                                     </h3>
                                                     <div className="mt-1 flex items-center text-sm text-gray-500">
                                                         <CalendarDaysIcon className="h-4 w-4 mr-1" />
-                                                        {booking.booking_date}
+                                                        {new Date(booking.booking_date).toLocaleString('en-US', {
+                                                            month: 'long',
+                                                            day: 'numeric',
+                                                            year: 'numeric',
+                                                            hour: 'numeric',
+                                                            minute: '2-digit',
+                                                            hour12: true,
+                                                        })}
                                                         <span className="mx-2">•</span>
                                                         {booking.number_of_people} people
                                                     </div>
@@ -178,8 +185,9 @@ export default function UserDashboard({ user, recentBookings, stats }) {
                                                         </div>
                                                         <div>
                                                             <h3 className="text-sm font-medium text-gray-900">
-                                                                Payment for {booking.package.title}
+                                                                Payment for <span className="text-red-800">{booking.package.title}</span>
                                                             </h3>
+
                                                             {/* <div className="mt-1 flex items-center text-sm text-gray-500">
                                                                 <ClockIcon className="h-4 w-4 mr-1" />
                                                                 Paid on {booking.booking_date}
